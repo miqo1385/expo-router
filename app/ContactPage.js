@@ -12,6 +12,11 @@ const Contact = () => {
 
             }} style={styles.profileImage} />
             <Text style={styles.header}>Welcome to {Name} {LastName} contact page </Text>
+            <View style={styles.technologiesContainer}>
+                <Text style={[styles.techBox, styles.techText]}>Phone Number: 2062500139</Text>
+                <Text style={[styles.techBox, styles.techText]}>Email: miqo1385@gmail.com</Text>
+                <Text style={[styles.techBox, styles.techText]}>GitHub: https://github.com/miqo1385</Text>
+            </View>
             <Button onPress={() => router.back()} title='Go Back'/>
         </View>
     )
@@ -20,16 +25,35 @@ const Contact = () => {
 const styles = StyleSheet.create({
 
     profileImage: {
-        width: 150,
-        height: 150,
+        width: 300,
+        height: 300,
         borderRadius: 75,
         marginBottom: 20,
+        marginTop: 200,
+        marginLeft: 75,
+        alignItems: 'flex-start'
+        
     },
 
     header: {
         fontSize: 24,
         fontWeight: 'bold',
         color: 'black'
+    },
+    technologiesContainer: {
+        flex:1,
+        alignItems: 'center',
+        padding: 24,
+    },
+    techBox: {
+        backgroundColor: '#61dafb',
+        borderRadius: 20,
+        padding: 20,
+        marginRight: 20,
+        marginBottom: 20,
+    },
+    techText: {
+        color: '#fff',
     },
 })
 

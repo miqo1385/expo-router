@@ -10,12 +10,12 @@ export default function Page () {
 
     return(
         <View style= {styles.container}>
-            <View style= {styles.main}>
+            <View style= {styles.technologiesContainer}>
                 <Text style ={styles.header}>Hello</Text>
                 <Text style ={styles.header}>First Project</Text>
-                <Link style ={styles.header2}  push href='./ProjectsPage?Name=Miguel&LastName=Quintana'>Open Projects</Link>
-                <Link style ={styles.header2} push href= './SkillsPage?Name=Miguel&LastName=Quintana'>User Profile</Link>
-                <Link style ={styles.header2} push href= './ContactPage?Name=Miguel&LastName=Quintana'>Contacto</Link>
+                <Link style ={[styles.techBox, styles.techText]}  push href='./ProjectsPage?Name=Miguel&LastName=Quintana'>Open Projects</Link>
+                <Link style ={[styles.techBox, styles.techText]} push href= './SkillsPage?Name=Miguel&LastName=Quintana'>User Profile</Link>
+                <Link style ={[styles.techBox, styles.techText]} push href= './ContactPage?Name=Miguel&LastName=Quintana'>Contacto</Link>
                 
             </View>
 
@@ -50,4 +50,20 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         padding: 30,
       },
+
+      technologiesContainer: {
+        flex:1,
+        alignItems: 'center',
+        padding: 24,
+    },
+    techBox: {
+        backgroundColor: '#61dafb',
+        borderRadius: 20,
+        padding: 20,
+        marginRight: 20,
+        marginBottom: 20,
+    },
+    techText: {
+        color: '#fff',
+    },
 })
