@@ -4,6 +4,8 @@ import profile from "./ProjectsPage";
 import userProfile from "./SkillsPage";
 import Contact from "./ContactPage";
 
+// new comment
+
 export default function Page () {
 
     return(
