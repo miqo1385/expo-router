@@ -12,7 +12,7 @@ export default function Page () {
         <View style= {styles.container}>
             <View style= {styles.technologiesContainer}>
                 <Text style ={styles.header}>Hello</Text>
-                <Text style ={styles.header}>First Project</Text>
+                <Text style ={styles.header}>Second Router Project</Text>
                 <Link style ={[styles.techBox, styles.techText]}  push href='./ProjectsPage?Name=Miguel&LastName=Quintana'>Open Projects</Link>
                 <Link style ={[styles.techBox, styles.techText]} push href= './SkillsPage?Name=Miguel&LastName=Quintana'>User Profile</Link>
                 <Link style ={[styles.techBox, styles.techText]} push href= './ContactPage?Name=Miguel&LastName=Quintana'>Contacto</Link>

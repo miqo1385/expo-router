@@ -1,16 +1,35 @@
 import { View, Text, Button, StyleSheet, Image } from "react-native";
 import React from "react";
 import { useRouter, useGlobalSearchParams } from "expo-router";
+import { useState } from 'react';
+import * as ImagePicker from 'expo-image-picker';
 
 const Contact = () => {
+    const [image, setImage] = useState(null);
     const router = useRouter();
     const {Name,LastName} = useGlobalSearchParams();
 
+    const pickImage = async () => {
+    
+        let result = await ImagePicker.launchImageLibraryAsync({
+          mediaTypes: ImagePicker.MediaTypeOptions.All,
+          allowsEditing: true,
+          aspect: [4, 3],
+          quality: 1,
+        });
+    
+        console.log(result);
+    
+        if (!result.canceled) {
+          setImage(result.assets[0].uri);
+        }
+      };
+
     return (
         <View style={{flex: 1, alignSelf: 'center', justifyContent: 'center'}}>
-            <Image source= {{uri: 'https://scontent-sea1-1.xx.fbcdn.net/v/t1.18169-9/14632825_10210331221413894_837669629782233437_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=RPB-cxvWRJcQ7kNvgG4kOXi&_nc_ht=scontent-sea1-1.xx&oh=00_AfAxI8QhHqG5A2Xdvw1bNLuEYVrKNG1I7YSpCXn_cIASPQ&oe=66581349'
-
-            }} style={styles.profileImage} />
+            {image && <Image source={{ uri: image }} style={styles.image} />}
+           <Button style={[styles.technologiesContainer,styles.techBox, styles.techText]} title="Pick an image from camera roll" onPress={pickImage} />
+      
             <Text style={styles.header}>Welcome to {Name} {LastName} contact page </Text>
             <View style={styles.technologiesContainer}>
                 <Text style={[styles.techBox, styles.techText]}>Phone Number: 2062500139</Text>
@@ -24,16 +43,6 @@ const Contact = () => {
 
 const styles = StyleSheet.create({
 
-    profileImage: {
-        width: 300,
-        height: 300,
-        borderRadius: 75,
-        marginBottom: 20,
-        marginTop: 200,
-        marginLeft: 75,
-        alignItems: 'flex-start'
-        
-    },
 
     header: {
         fontSize: 24,
@@ -55,6 +64,15 @@ const styles = StyleSheet.create({
     techText: {
         color: '#fff',
     },
+    image: {
+        width: 200,
+        height: 200,
+        borderRadius: 75,
+        marginBottom: 20,
+        marginTop: 200,
+        marginLeft: 115,
+        alignItems: 'flex-start'
+      },
 })
 
 export default Contact; 
